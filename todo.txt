@@ -1,0 +1,7 @@
+Read Note functionality added.
+Create Note functionality added.
+
+
+TODO:-
+1) Need to work on Update and Delete functionality
+2) At later stages, add a log.txt file to track which user loggedin and at what time.
