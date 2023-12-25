@@ -14,7 +14,7 @@ require('controllers/authController.php');
 
 $pages = array(
     '/',
-    '/login',
+    // '/login',
     '/signup',
     '/notes',
     '/notes/insertNote',
