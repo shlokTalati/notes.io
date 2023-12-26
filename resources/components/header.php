@@ -1,7 +1,7 @@
 <nav class="navbar navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">
-      Notes.io
+    <a class="navbar-brand" href="/notes.io/">
+      <h4>Notes.io</h4>
     </a>
 
     <div class="d-flex">

@@ -1,7 +1,7 @@
 <?php
 //echo "This is UserServices.php";
 
-require(__DIR__ . '/../config/Database.php');
+require_once($_SERVER['DOCUMENT_ROOT'] . "/notes.io/config/Database.php");
 
 class UserServices extends Database{
 
@@ -60,6 +60,18 @@ class UserServices extends Database{
         }
     }
     
+
+    public function updateUser($name, $email, $password){
+        $update_query = "UPDATE user SET name='$name', password='$password' WHERE email='$email'";
+        $update_result = mysqli_query($this->connection, $update_query);
+        if ($update_result == true) {
+            $updateStatus = true;
+        }
+        else{
+            $updateStatus = false;
+        }
+        return $updateStatus;
+    }
 
 
     public function logout(){
