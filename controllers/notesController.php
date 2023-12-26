@@ -1,9 +1,11 @@
 <?php 
 
 // echo "Sent by Notes Controller"; // Debug Message to check if the controller is working
+require($_SERVER['DOCUMENT_ROOT'] . "/notes.io/models/NoteServices.php");
 
-require_once(__DIR__ . '/../models/NoteServices.php');
-
+// Get the Notes View from Views Directory
+$viewPath = $_SERVER['DOCUMENT_ROOT'] . "/notes.io/resources/views/notesView.php";
+ 
 
 
 $noteServices = new NoteServices;
@@ -20,8 +22,8 @@ if(isset($_POST['noteTitle']) && $request_uri == '/notes/insertNote'){
 
 //Delete Notes
 // Check if the URL consists of Delete request and then delete notes
-else if (count($segments) > 2 && $segments[0] == 'notes' && $segments[1] == 'deleteNote' && isset($segments[2])){
-    $deleteNoteId = $segments[2];
+else if (count($segment) > 2 && $segment[0] == 'notes' && $segment[1] == 'deleteNote' && isset($segment[2])){
+    $deleteNoteId = $segment[2];
     $noteServices->deleteNote($deleteNoteId);
     
 }
@@ -34,6 +36,5 @@ else if(isset($_POST['updateId']) && $request_uri == '/notes/updateNote'){
 
 // Renders the Notes View from Views Directory
 // Renders the Notes View from Views Directory
-require_once(__DIR__ . '/../resources/views/notesView.php');
 
 ?>

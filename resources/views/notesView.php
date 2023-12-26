@@ -1,19 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Notes.io</title>
-    <?php require_once("resources/css/styles.bundle.php"); ?>
-</head>
-
-<body class="bg-dark">
-<?php
-  require(__DIR__. "/../components/header.php");
-  
-  ?>
-
+<main class="container">
     <!-- Form for Inserting Notes in Database -->
     <div class="container mt-5">
 
@@ -116,7 +101,7 @@
     </div>
   </form>
 </div>
-
+</main>
 
 <!-- Hidden Variable for Storing PHP Data in Javascript -->
 <!-- Hidden Variable for Storing PHP Data in Javascript -->
@@ -130,20 +115,3 @@
     echo "<span id = 'tempDataVariable' class='d-none' >". $tempData . "</span>";
     }  
     ?>
-
-<?php require_once("resources/js/scripts.bundle.php"); ?>
-
-    <?php
-    if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
-
-        echo "<script> loggedInStatus(true); </script>";
-    } else {
-        header('Location: index.php');
-    }
-    ?>
-
-
-
-</body>
-
-</html>

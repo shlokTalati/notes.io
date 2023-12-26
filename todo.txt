@@ -2,6 +2,7 @@ Login, Signup and CRUD Functionalities added
 
 
 TODO:-
-1) Need to add a login Console.
+0) Create a way to render all the views in PHP using a single templateView file.
+1) Create the userConsoleView layout and after that, route the page in index.php file
 2) At later stages, add a log.txt file to track which user loggedin and at what time.
 3) Create an API so that anyone can access notes from api using their Email ID and Password

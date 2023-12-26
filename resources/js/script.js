@@ -1,9 +1,12 @@
 
 var loginContainer = document.getElementById("loginContainer");
 var signupContainer = document.getElementById("signupContainer");
+
 var loginBtnNav = document.getElementById("loginBtnNav");
 var signupBtnNav = document.getElementById("signupBtnNav");
+var userBtnNav = document.getElementById("userBtnNav");
 var logoutBtnNav = document.getElementById("logoutBtnNav");
+
 const tempVariable = document.getElementById("tempDataVariable");
 var updateId = document.getElementById("updateId");
 var updateTitle = document.getElementById("updateTitle");
@@ -56,6 +59,7 @@ function toggleLogin() {
             loginBtnNav.classList.add("d-none");
             signupBtnNav.classList.add("d-none");
             logoutBtnNav.classList.remove("d-none");
+            userBtnNav.classList.remove("d-none");
             console.log("Login Status is TRUE");
             
         }
@@ -63,6 +67,7 @@ function toggleLogin() {
             loginBtnNav.classList.remove("d-none");
             signupBtnNav.classList.remove("d-none");
             logoutBtnNav.classList.add("d-none");        
+            userBtnNav.classList.add("d-none");        
             console.log("Login Status is FALSE");
         }
     }

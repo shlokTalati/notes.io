@@ -26,7 +26,7 @@ class UserServices extends Database{
     
         if ($this->checkEmail($email) == true) {
             $_SESSION['signupStatus'] = false;
-            header("Location: /notes.io/signup/");
+            header("Location: /notes.io/signup");
         } 
         else {
             
@@ -34,7 +34,7 @@ class UserServices extends Database{
             $signup_result = mysqli_query($this->connection, $signup_query);
             if ($signup_result == true) {
                 $_SESSION['signupStatus'] = true;
-                header("Location: /notes.io/signup");
+                header("Location: /notes.io/login");
             }
     
         }
@@ -53,10 +53,10 @@ class UserServices extends Database{
             $_SESSION['loggedIn'] = true;
             $_SESSION['userName'] = $user['name']; 
             $_SESSION['userEmail'] = $user['email'];
-            header("Location: notes");
+            header("Location: /notes.io/notes");
         }
         else{
-            header("Location: loginfailure");
+            header("Location: /notes.io/login");
         }
     }
     
@@ -64,7 +64,7 @@ class UserServices extends Database{
 
     public function logout(){
         session_unset();
-        header("Location: /notes.io/");
+        header("Location: /notes.io/login");
     
     }
 
