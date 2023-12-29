@@ -10,7 +10,7 @@
   <?php require_once($_SERVER['DOCUMENT_ROOT'] . "/notes.io/resources/css/styles.bundle.php");  ?>
 </head>
 
-<body class="bg-light" style="min-height: 100vh">
+<body class="bg-dark" style="min-height: 100vh">
 
   <!-- Header -->
   <?php require($_SERVER['DOCUMENT_ROOT'] . "/notes.io/resources/components/header.php");  ?>
