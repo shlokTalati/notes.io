@@ -14,7 +14,7 @@ if(isset($_POST['loginEmail'])){
 //To Signup a User
 else if (isset($_POST['signupEmail'])) {
     
-    $auth->signup($_POST['signupName'], $_POST['signupEmail'], $_POST['signupPass']);
+    $auth->signup($_POST['signupName'], $_POST['signupDob'], $_POST['signupContactNo'] ,$_POST['signupEmail'], $_POST['signupPass']);
 
 }
 

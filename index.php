@@ -38,17 +38,19 @@ if(in_array($request_uri, $pages)){
         require_once($_SERVER['DOCUMENT_ROOT'] . "/notes.io/controllers/authController.php");
     }
     
-    
+    //Routing if the user is already logged in
     if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
 
+        //If the User Access Notes Subpage
         if ($segment[0] === 'notes' || $segment[0] == null) {
             if ($request_uri != '/notes') {
                 header("Location: /notes.io/notes");
             }
-
+            
             require_once($_SERVER['DOCUMENT_ROOT'] . "/notes.io/controllers/notesController.php");
         }
-
+        
+        //If the User Access User Subpage
         else if($segment[0] === 'user'){
             if($request_uri != '/user/edit'){
                 header("Location: /notes.io/user/edit");

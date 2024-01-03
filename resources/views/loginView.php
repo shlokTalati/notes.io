@@ -1,4 +1,4 @@
-  <main class="container">
+<main class="container">
   <!-- Login Container -->
   <!-- Login Container -->
   <div class="container mt-5 pt-5" id="loginContainer">
@@ -8,11 +8,13 @@
       <form action="/notes.io/auth" method="post">
 
         <div class="form-floating mb-4">
-          <input type="email" class="form-control" id="loginEmail" placeholder="name@example.com" name="loginEmail" required>
+          <input type="email" class="form-control" id="loginEmail" placeholder="name@example.com" name="loginEmail"
+            required>
           <label for="loginEmail">Email address</label>
         </div>
         <div class="form-floating">
-          <input type="password" class="form-control" id="loginPassword" placeholder="Password" name="loginPassword" required>
+          <input type="password" class="form-control" id="loginPassword" placeholder="Password" name="loginPassword"
+            required>
           <label for="loginPass">Password</label>
         </div>
         <br><br>
@@ -38,7 +40,19 @@
         </div>
 
         <div class="form-floating mb-4">
-          <input type="email" class="form-control" id="signupEmail" placeholder="name@example.com" name="signupEmail" required>
+          <input type="date" class="form-control" id="signupDob" placeholder="Date of Birth" name="signupDob" required>
+          <label for="signupDate">Date of Birth</label>
+        </div>
+
+        <div class="form-floating mb-4">
+          <input type="number" maxlength="10" class="form-control" id="signupContactNo" placeholder="Contact Number"
+            name="signupContactNo" required>
+          <label for="signupContactNo">Contact Number</label>
+        </div>
+
+        <div class="form-floating mb-4">
+          <input type="email" class="form-control" id="signupEmail" placeholder="name@example.com" name="signupEmail"
+            required>
           <label for="signupEmail">Email address</label>
         </div>
         <div class="form-floating">
@@ -54,7 +68,3 @@
   </div>
 
 </main>
-
-
-
-
