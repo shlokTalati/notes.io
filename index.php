@@ -1,6 +1,7 @@
 <?php
 require_once('init.php');
-$request_uri = str_replace('/notes.io', '', $_SERVER['REQUEST_URI']);
+$parsed_path = parse_url($_SERVER['REQUEST_URI']);
+$request_uri = str_replace('/notes.io', '', $parsed_path['path']);
 // echo $request_uri;
 // echo "<br>";
 $segment = explode('/', trim($request_uri, '/'));
@@ -28,8 +29,6 @@ $pages = array(
 if (count($segment) > 2 && $segment[0] == 'notes' && $segment[1] == 'deleteNote' && isset($segment[2])) {
     $pages . array_push($pages, $request_uri);
 }
-
-echo $request_uri;
 
 if($segment[0] == 'api'){
 
