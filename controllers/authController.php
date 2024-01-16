@@ -1,13 +1,23 @@
 <?php
 
-require_once(__DIR__ . '/../models/UserServices.php');
+require(__DIR__ . '/../models/UserServices.php');
 
 $auth = new UserServices();
 
 //To Login a User
 if(isset($_POST['loginEmail'])){
     
-    $auth->login($_POST['loginEmail'], $_POST['loginPassword']);
+    $loginResult = $auth->login($_POST['loginEmail'], $_POST['loginPassword']);
+
+    if($loginResult != null){
+        $_SESSION['loggedIn'] = true;
+        $_SESSION['userName'] = $loginResult['name']; 
+        $_SESSION['userEmail'] = $loginResult['email'];
+        header("Location: /notes.io/notes");
+
+    } else {
+        header("Location: /notes.io/login");
+    }
     
 }
 

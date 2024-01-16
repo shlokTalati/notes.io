@@ -32,9 +32,4 @@ else if (count($segment) > 2 && $segment[0] == 'notes' && $segment[1] == 'delete
 else if(isset($_POST['updateId']) && $request_uri == '/notes/updateNote'){
     $noteServices->updateNote($_POST['updateId'], $_POST['updateTitle'], $_POST['updateDescription']);
 }
-
-
-// Renders the Notes View from Views Directory
-// Renders the Notes View from Views Directory
-
 ?>

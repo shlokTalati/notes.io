@@ -20,14 +20,14 @@ class NoteServices extends Database
         $display_result = mysqli_query($this->connection, $display_query);
 
         if (mysqli_num_rows($display_result) > 0) {
-
+            
             return $display_result;
         } else {
             return "";
         }
 
     }
-
+    
 
     public function deleteNote($note_id)
     {

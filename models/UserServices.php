@@ -59,20 +59,17 @@ class UserServices extends Database{
 
 
 
-    //Function to authenticate and login a user 
+    //Function to authenticate and login a user and Login the User
     public function login($email, $password){
         
         $login_query = "SELECT name, email from user where email='$email' and password = '$password'";
         $login_result = mysqli_query($this->connection, $login_query);
         if (mysqli_num_rows($login_result) > 0) {
             $user = mysqli_fetch_assoc($login_result);
-            $_SESSION['loggedIn'] = true;
-            $_SESSION['userName'] = $user['name']; 
-            $_SESSION['userEmail'] = $user['email'];
-            header("Location: /notes.io/notes");
+            return $user;
         }
         else{
-            header("Location: /notes.io/login");
+            return null;
         }
     }
     
@@ -107,7 +104,6 @@ class UserServices extends Database{
     public function logout(){
         session_unset();
         header("Location: /notes.io/login");
-    
     }
 
 }
