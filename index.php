@@ -1,10 +1,8 @@
 <?php
-require_once('init.php');
+require('init.php');
 $parsed_path = parse_url($_SERVER['REQUEST_URI']);
-$request_uri = str_replace('/notes.io', '', $parsed_path['path']);
-// echo $request_uri;
-// echo "<br>";
-$segment = explode('/', trim($request_uri, '/'));
+$request_uri = str_replace('/notes.io', '', $parsed_path['path']); // Remove the /notes.io from the URL
+$segment = explode('/', trim($request_uri, '/')); // Get the URL segments
 
 
 ?>
@@ -30,56 +28,14 @@ if (count($segment) > 2 && $segment[0] == 'notes' && $segment[1] == 'deleteNote'
     $pages . array_push($pages, $request_uri);
 }
 
+
+//Checks if the request is an API request. If yes, then route it to the API Controller
 if($segment[0] == 'api'){
 
     require($_SERVER['DOCUMENT_ROOT'] . "/notes.io/controllers/apiController.php");
 
-} else {
-    if (in_array($request_uri, $pages)) {
-
-        // Get AuthController to authenticate Login, Signup and Logout requests
-        if ($request_uri == '/auth' || $request_uri == '/logout') {
-            require_once($_SERVER['DOCUMENT_ROOT'] . "/notes.io/controllers/authController.php");
-        }
-
-        //Routing if the user is already logged in
-        if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
-
-            //If the User Access Notes Subpage
-            if ($segment[0] === 'notes' || $segment[0] == null) {
-                if ($request_uri != '/notes') {
-                    header("Location: /notes.io/notes");
-                }
-
-                require_once($_SERVER['DOCUMENT_ROOT'] . "/notes.io/controllers/notesController.php");
-            }
-
-            //If the User Access User Subpage
-            else if ($segment[0] === 'user') {
-                if ($request_uri != '/user/edit') {
-                    header("Location: /notes.io/user/edit");
-                }
-
-                require_once($_SERVER['DOCUMENT_ROOT'] . "/notes.io/controllers/userController.php");
-            }
-
-
-        } else {
-
-            if ($request_uri != '/login') {
-                header("Location: /notes.io/login");
-            }
-            require_once($_SERVER['DOCUMENT_ROOT'] . "/notes.io/controllers/loginController.php");
-
-        }
-    } else {
-        // Get the 404 View from Views Directory
-        $viewPath = $_SERVER['DOCUMENT_ROOT'] . "/notes.io/resources/views/404.php";
-    }
-
-    require($_SERVER['DOCUMENT_ROOT'] . "/notes.io/resources/views/templateView.php");
-
 }
-
-
+else {
+    require($_SERVER['DOCUMENT_ROOT'] . "/notes.io/routes/web.php");
+}
 ?>
