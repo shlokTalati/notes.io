@@ -22,14 +22,13 @@ if(isset($_POST['noteTitle']) && $request_uri == '/notes/insertNote'){
 
 //Delete Notes
 // Check if the URL consists of Delete request and then delete notes
-else if (count($segment) > 2 && $segment[0] == 'notes' && $segment[1] == 'deleteNote' && isset($segment[2])){
-    $deleteNoteId = $segment[2];
-    $noteServices->deleteNote($deleteNoteId);
-    
-}
+else if($request_uri == '/notes/deleteNote' && isset($_GET['deleteId'])){
+    $noteServices->deleteNote($_GET['deleteId']);
+} 
 
 //Update Notes
 else if(isset($_POST['updateId']) && $request_uri == '/notes/updateNote'){
     $noteServices->updateNote($_POST['updateId'], $_POST['updateTitle'], $_POST['updateDescription']);
 }
+
 ?>

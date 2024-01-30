@@ -51,7 +51,7 @@
           echo "<td>" . $note['title'] . "</td>";
           echo "<td>" . $note['description'] . "</td>";
           echo "<td>";
-          echo "<a class='btn btn-sm btn-outline-danger mx-2' href='/notes.io/notes/deleteNote/" . $note['id'] . "' id='deleteNoteBtn'>Delete</a>";
+          echo "<a class='btn btn-sm btn-outline-danger mx-2' href='/notes.io/notes/deleteNote?deleteId=" . $note['id'] . "' id='deleteNoteBtn'>Delete</a>";
 
           echo "<a class='btn btn-sm btn-outline-warning mx-2' onclick='updateNote(".($i-1).")' id='updateNoteBtn'>Update</a>";
 

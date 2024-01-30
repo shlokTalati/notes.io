@@ -36,7 +36,7 @@ class NoteServices extends Database
         $delete_result = mysqli_query($this->connection, $delete_query);
 
         if ($delete_result == true) {
-            header("Location: /notes.io/notes/deleteNote");
+            header("Location: /notes.io/notes/");
         } else {
             
             Header("Location: /notes.io/notes/deleteNoteFailure");
