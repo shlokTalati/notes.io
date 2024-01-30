@@ -1,4 +1,21 @@
-<?php if (in_array($request_uri, $pages)) {
+<?php
+
+$pages = array(
+    '/',
+    '/auth',
+    '/login',
+    '/signup',
+    '/notes',
+    '/notes/insertNote',
+    '/notes/deleteNote',
+    '/notes/updateNote',
+    '/user',
+    '/user/edit',
+    '/logout'
+);
+
+
+if (in_array($request_uri, $pages)) {
 
 // Get AuthController to authenticate Login, Signup and Logout requests
 if ($request_uri == '/auth' || $request_uri == '/logout') {
