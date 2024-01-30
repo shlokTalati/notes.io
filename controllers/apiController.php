@@ -1,8 +1,8 @@
-<!-- To get notes of a particular user, use localhost/notes.io/api path with query parameters "email" and "password". The snippet below shows the code for the same.
-Eg. http://localhost/notes.io/api?email=saritatalati@gmail.com&password=shlok12345 
-If the user exists, the API will return the notes of the user in JSON format. If the user does not exist, the API will return the message "Incomplete Credentials or User does not exist". -->
-
 <?php 
+// To get notes of a particular user, use localhost/notes.io/api path with query parameters "email" and "password". The snippet below shows the code for the same.
+// Eg. http://localhost/notes.io/api?email=saritatalati@gmail.com&password=shlok12345 
+// If the user exists, the API will return the notes of the user in JSON format. If the user does not exist, the API will return the message "Incomplete Credentials or User does not exist".
+
 
 require($_SERVER['DOCUMENT_ROOT'] . "/notes.io/models/NoteServices.php");
 require($_SERVER['DOCUMENT_ROOT'] . "/notes.io/models/UserServices.php");
